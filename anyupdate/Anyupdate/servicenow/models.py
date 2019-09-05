@@ -21,6 +21,7 @@ class ConfigItem(models.Model):
 
 class Incident(models.Model):
     inc_id = models.CharField(max_length=50, unique=True, primary_key=True)
+    inc_dup_id = models.CharField(max_length=50, null=True, blank=True)
     short_desc = models.TextField(blank=True, max_length=500)
     configitem = models.ForeignKey(ConfigItem, related_name="incs", on_delete=models.DO_NOTHING)
     parent = models.CharField(null=True, max_length=100, blank=True)

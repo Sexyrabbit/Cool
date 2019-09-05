@@ -46,4 +46,5 @@ urlpatterns = [
     path('fakedata', TemplateView.as_view(template_name="scrumboard/home.html")),
     path('flow/', TemplateView.as_view(template_name="flow.html")),
     path('data/', TemplateView.as_view(template_name="data.json")),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
