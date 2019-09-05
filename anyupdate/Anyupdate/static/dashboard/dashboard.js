@@ -111,25 +111,29 @@ $(function () {
                if (hasInc) {
                     incs = configitem["incs"];
                     for(var i=0; i<incs.length; i++) {
-                        inc = incs[i];
+                        var inc = incs[i];
                         $('#'+inc["inc_id"]).hover(function(){
                             $(this).css({"background-color": "#ff0000"});
                             $('#'+appname).css({
                                 'box-shadow': '10px 10px 10px red'
                             });
-                            if (inc["parent"] != null) {
+                            if (inc["parent"] !== null) {
                                 $('#' + inc["parent"]).css({"background-color": "#ff0000"});
+                                $('#' + inc["parent"]).parent().parent().css({'box-shadow': '10px 10px 10px red'});
                             }
-                            if (inc["child"] != null) {
-                                $('#' + inc["child"]).css({"background-color": "#ff0000"});
+                            if (inc["children"] !== null) {
+                                $('#' + inc["children"]).css({"background-color": "#ff0000"});
+                                $('#' + inc["children"]).parent().parent().css({'box-shadow': '10px 10px 10px red'});
                             }
                         }, function(){
                             $(this).css({"background-color": "#A41914"});
-                            if (inc["parent"] != null) {
+                            if (inc["parent"] !== null) {
                                 $('#' + inc["parent"]).css({"background-color": "#A41914"});
+                                $('#' + inc["parent"]).parent().parent().css({'box-shadow': ''});
                             }
-                            if (inc["child"] != null) {
-                                $('#' + inc["child"]).css({"background-color": "#A41914"});
+                            if (inc["children"] !== null) {
+                                $('#' + inc["children"]).css({"background-color": "#A41914"});
+                                $('#' + inc["children"]).parent().parent().css({'box-shadow': ''});
                             }
                         });
 
