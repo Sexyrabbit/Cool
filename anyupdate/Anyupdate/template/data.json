@@ -1,0 +1,60 @@
+{
+    "nodes" : [
+      {
+         "name" : "NormalApp",
+          "ci": "RUN-WILL-CRASH",
+         "inc" : "INC09",
+        "desc": "INC09",
+        "id": "NormalApp"
+      },
+      {
+         "name" : "AmazingSystem",
+          "ci": "Always-Fail",
+         "inc" : "INC07",
+         "desc": "INC07",
+        "id": "AmazingSystem"
+      },
+      {
+         "name" : "SampleApp",
+         "ci": "Sample",
+         "inc" : "INC06",
+         "desc": "INC06",
+        "id": "SampleApp"
+      },
+      {
+         "name" : "CoolApp",
+          "ci": "LN-PROD-TP",
+         "inc" : "INC00",
+        "desc": "INC00",
+        "id": "CoolApp"
+      },
+      {
+         "name" : "WhatApp",
+          "ci": "Waht",
+         "inc" : "Waht",
+        "desc": "Waht",
+        "id": "WhatApp"
+      }
+    ],
+    "links" : [
+      {
+         "source" : 0,
+         "value" : 1,
+         "target" : 1
+      },
+      {
+         "value" : 1,
+         "source" : 1,
+         "target" : 2
+      },
+      {
+         "value" : 1,
+         "source" : 3,
+         "target" : 1
+      },
+      {
+         "value" : 1,
+         "source" : 4,
+         "target" : 1
+      }]
+}

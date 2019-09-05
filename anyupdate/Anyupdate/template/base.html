@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{% block title %}Anyupdate{% endblock %}</title>
+    
+    {% block css %}
+
+    {% endblock %}
+
+    {% block javascript %}
+
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>AnyUpdate</h1>
+
+        <div class="grid-stack">
+        </div>
+    </div>
+
+    {% block footerjs %}
+    {% endblock %}
+</body>
+</html>

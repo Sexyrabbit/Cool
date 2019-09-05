@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{% block title %}Flow{% endblock %}</title>
+
+    {% block css %}
+    <style>
+        body {
+            padding: 10px;
+            min-width: 600px;
+            max-width: 1200px;
+            margin: auto;
+        }
+      #chart {
+        height: 600px;
+        font: 13px sans-serif;
+      }
+      .node rect {
+          cursor: move;
+          fill-opacity: .9;
+          shape-rendering: crispEdges;
+        }
+
+        .node text {
+          pointer-events: none;
+          text-shadow: 0 1px 0 #fff;
+        }
+
+        .link {
+          fill: none;
+          stroke: #000;
+          stroke-opacity: .2;
+        }
+
+        .link:hover {
+          stroke-opacity: .5;
+        }
+    </style>
+    {% endblock %}
+
+    {% block javascript %}
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//cdn.rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+    <script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+    <script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+    {% endblock %}
+
+</head>
+<body>
+    <p id="chart">
+    {% block footerjs %}
+     <script type="text/javascript" src="{% static "dashboard/flow.js" %}"></script>
+    {% endblock %}
+</body>
+</html>
