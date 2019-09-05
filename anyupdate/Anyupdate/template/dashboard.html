@@ -8,8 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
         body {
-            background-image: url("paper.gif");
-            background-color: #cccccc !important;
+            background-color: black !important;
         }
         h1 {
             font-family: Impact, Charcoal, sans-serif;
@@ -20,9 +19,34 @@
             font-weight: 700;
             text-decoration: none solid rgb(68, 68, 68);
             text-align: center;
+            margin-top: 10px;
+        }
+        .header-left {
+            background-image: url("{% static "dashboard/icon-sprite.png" %}");
+            background-position-x: 0px;
+            background-position-y: -1588px;
+            background-size: initial;
+            background-repeat: no-repeat;
+            height: 25px;
+            width: 152px;
+            margin-top: 25px;
+            float: left;
+        }
+        .header-right {
+            background-image: url("{% static "dashboard/icon-sprite.png" %}");
+            background-color: #ca1e1e;
+            background-position-x: -163px;
+            background-position-y: -1750px;
+            background-repeat: no-repeat;
+            height: 65px;
+            width: 90%;
+            float: right;
+            min-width: 960px
         }
         .grid-stack {
+            margin-top: 90px;
             background: #cccccc;
+            background-color: transparent;
         }
         .grid-stack-item {
         }
@@ -50,7 +74,7 @@
 {% endblock %}
 
 {% block javascript %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.0/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

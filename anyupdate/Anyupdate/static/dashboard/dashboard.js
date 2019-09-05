@@ -38,6 +38,10 @@ $(function () {
                     }
                     setupData(app);
                });
+
+               result.forEach(function(app){
+                    incidentEvent(app["configitem"], app["app_name"]);
+               });
                isInited = true;
                //console.log(result);
              }
@@ -76,34 +80,74 @@ $(function () {
            var gridtext = "<h3>" + app["app_name"] + "</h3>";
            if (hasInc) {
                gridv.css("background-color", "#A41914");
-               $('#'+id + ":not(.bound)").addClass('bound').bind("click", function(){
-                    window.open("/flow/");
-               });
+//               $('#'+id + ":not(.bound)").addClass('bound').bind("click", function(){
+//                    window.open("/flow/");
+//               });
            } else {
                 gridv.css("background-color", "#34A417");
-                $('#'+id + ":not(.bound)").addClass('bound').unbind("click");
+//                $('#'+id + ":not(.bound)").addClass('bound').unbind("click");
            }
            configitems.forEach(function(configitem) {
                if (hasInc) {
-                    gridtext += setupIncidents(configitem["incs"]);
-               } else {
-                    gridtext += setupIncidents(configitem["incs"]);
+                    gridtext += setupIncidents(configitem["incs"], id);
                }
            });
            gridtext += "<p>Last updated at:" + new Date() + "</p>";
            gridv.html(gridtext);
+
+
        }
     }
 
-    function setupIncidents(incs) {
+    function incidentEvent(configitems, appname) {
+        hasInc = false;
+        if (configitems.length > 0) {
+            configitems.forEach(function(configitem){
+                if(configitem["incs"].length > 0) {
+                    hasInc = true;
+                }
+            });
+            configitems.forEach(function(configitem) {
+               if (hasInc) {
+                    incs = configitem["incs"];
+                    for(var i=0; i<incs.length; i++) {
+                        inc = incs[i];
+                        $('#'+inc["inc_id"]).hover(function(){
+                            $(this).css({"background-color": "#ff0000"});
+                            $('#'+appname).css({
+                                'box-shadow': '10px 10px 10px red'
+                            });
+                            if (inc["parent"] != null) {
+                                $('#' + inc["parent"]).css({"background-color": "#ff0000"});
+                            }
+                            if (inc["child"] != null) {
+                                $('#' + inc["child"]).css({"background-color": "#ff0000"});
+                            }
+                        }, function(){
+                            $(this).css({"background-color": "#A41914"});
+                            if (inc["parent"] != null) {
+                                $('#' + inc["parent"]).css({"background-color": "#A41914"});
+                            }
+                            if (inc["child"] != null) {
+                                $('#' + inc["child"]).css({"background-color": "#A41914"});
+                            }
+                        });
+
+                    }
+               }
+           });
+        }
+    }
+
+    function setupIncidents(incs, appname) {
         var result = "";
         result += "<ul class='incidentlist'>";
         for(var i=0; i<incs.length; i++) {
-            result += "<li>" + incs[i]["inc_id"] + ": " + incs[i]["short_desc"];
+            result += "<li id='"+ incs[i]["inc_id"] +"'>" + incs[i]["inc_id"] + ": " + incs[i]["short_desc"];
             if (incs[i].eta != null) {
                 result += " ETA:" + incs[i].eta + "h";
             }
-            result += "</li>"
+            result += "</li>";
         }
         result += "</ul>";
         return result
