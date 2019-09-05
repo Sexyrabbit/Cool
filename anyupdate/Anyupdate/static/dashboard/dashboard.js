@@ -49,19 +49,22 @@ $(function () {
     }
 
     function initLoad(app, grid) {
-        var classtag = app["app_name"].replace(/\s+/g, "_");
-        var id = app["app_name"].replace(" ", "_");
-        grid.addWidget($('<div class="'+classtag+'"><div class="grid-stack-item-content" id='+id+'>'+app["app_name"]+'</div></div>'), app["Posx"]*2, app["Posy"], 2, app["Colspan"]*2);
+        if (app["Posx"] !== 100) {
+            var classtag = app["app_name"].replace(/\s+/g, "_");
+            var id = app["app_name"].replace(" ", "_");
+            grid.addWidget($('<div class="'+classtag+'"><div class="grid-stack-item-content" id='+id+'>'+app["app_name"]+'</div></div>'), app["Posx"]*2, app["Posy"], 2, app["Colspan"]*2);
 
-        $('#'+id).hover(function(){
-            $('#'+id).css({
-                'box-shadow': '10px 10px 10px grey'
-            })
-        },function(){
-            $('#'+id).css({
-                'box-shadow': ''
-            })
-        });
+            $('#'+id).hover(function(){
+                $('#'+id).css({
+                    'box-shadow': '10px 10px 10px grey'
+                })
+            },function(){
+                $('#'+id).css({
+                    'box-shadow': ''
+                })
+             });
+        }
+
     }
 
     function setupData(app) {
