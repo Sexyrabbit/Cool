@@ -92,7 +92,7 @@ $(function () {
                     gridtext += setupIncidents(configitem["incs"], id);
                }
            });
-           gridtext += "<p>Last updated at:" + new Date() + "</p>";
+//           gridtext += "<p>Last updated at:" + new Date() + "</p>";
            gridv.html(gridtext);
 
 
