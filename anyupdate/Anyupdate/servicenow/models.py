@@ -30,7 +30,7 @@ class Incident(models.Model):
     serverity = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return "Incident: {}".format(self.short_desc)
+        return "Incident: {}".format(self.inc_id)
 
 
 
