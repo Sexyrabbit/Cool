@@ -3,6 +3,111 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'dashboard/box.css' %}" />
+    <style>
+        body {
+            background-color: black !important;
+        }
+        h1 {
+            font-family: Impact, Charcoal, sans-serif;
+            font-size: 42px;
+            letter-spacing: 0px;
+            word-spacing: 2px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            text-align: center;
+            margin-top: 10px;
+        }
+        .cool-title {
+            font-family: Impact, Charcoal, sans-serif;
+            font-size: 42px;
+            letter-spacing: 0px;
+            word-spacing: 2px;
+            color: #ca1e1e;
+            font-weight: 700;
+            text-decoration: none solid
+            rgb(68, 68, 68);
+            margin-top: 5px;
+            margin-left: 5px;
+            text-align: center;
+        }
+        .main-title {
+            font-family: Impact, Charcoal, sans-serif;
+            font-size: 42px;
+            letter-spacing: 0px;
+            word-spacing: 2px;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none solid rgb(68, 68, 68);
+            text-align: center;
+        }
+        .header-left {
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 25px;
+            float: left;
+            text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+            font-size:60px
+        }
+        .header-right {
+            background-image: url("{% static "dashboard/icon-title.png" %}");
+            background-color: #ca1e1e;
+            background-repeat: no-repeat;
+            height: 65px;
+            width: 85%;
+            float: right;
+        }
+        .footer {
+            position:absolute;
+            bottom:20px;
+            width:98%;
+            background-color: transparent;
+        }
+        .config-btn {
+            margin-bottom: 20px;
+            margin-right: 50px;
+            float: right;
+            width: 75px;
+            display: block;
+            -moz-box-shadow: 3px 4px 0px 0px #8a2a21;
+            -webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
+            box-shadow: 3px 4px 0px 0px #8a2a21;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
+            background:-moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+            background:-webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+            background:-o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+            background:-ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+            background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
+            background-color:#c62d1f;
+            -moz-border-radius:18px;
+            -webkit-border-radius:18px;
+            border-radius:18px;
+            border:1px solid #d02718;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:7px 25px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #810e05;
+        }
+        .config-btn:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
+            background:-moz-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+            background:-webkit-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+            background:-o-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+            background:-ms-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+            background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
+            background-color:#f24437;
+        }
+        .config-btn:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
 {% endblock %}
 
 {% block javascript %}
