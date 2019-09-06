@@ -35,13 +35,19 @@ $(function () {
                result.forEach(function(app){
                     if(!isInited) {
                         initLoad(app, grid);
+                        $("." + app["app_name"].replace(/\s+/g, "_") + " .grid-stack-item-content")
+                            .css("background-color", "#34A417");
                     }
-                    setupData(app);
+                    if(isInited) {
+                        setupData(app);
+                    }
                });
 
-               result.forEach(function(app){
-                    incidentEvent(app["configitem"], app["app_name"]);
-               });
+                if(isInited) {
+                   result.forEach(function(app){
+                        incidentEvent(app["configitem"], app["app_name"]);
+                   });
+               }
                isInited = true;
                //console.log(result);
              }
