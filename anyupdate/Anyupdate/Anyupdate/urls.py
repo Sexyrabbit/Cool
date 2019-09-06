@@ -43,8 +43,9 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url='dashboard/'), name='index'),
     path(r'api/apps', get_application_list),
     re_path(r'(?P<appname>[a-zA-Z0-9\s]+)/getData$', get_application_details),
-    path('fakedata', TemplateView.as_view(template_name="scrumboard/home.html")),
     path('flow/', TemplateView.as_view(template_name="flow.html")),
     path('data/', TemplateView.as_view(template_name="data.json")),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    re_path(r'relation/(?P<incidentID>[INC]{3}[0-9]{2})', get_relation),
+    re_path(r'fakedata/', get_fake_data),
 ]

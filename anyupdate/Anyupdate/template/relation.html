@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'dashboard/box.css' %}" />
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+    <script src="{% static 'dashboard/box.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <ct-visualization id="tree-container"></ct-visualization>
+        <script>
+            
+$(function(){
+            d3.json("fakedata/", function(error, json) {
+                treeBoxes('', json.tree);
+            });
+})
+        </script>
+    </div>
+{% endblock %}
+
+{% block footerjs %}
+{% endblock %}
