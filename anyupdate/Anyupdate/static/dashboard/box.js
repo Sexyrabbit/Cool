@@ -18,10 +18,10 @@ function treeBoxes(urlService, jsonData)
                  },
         // Height and width are redefined later in function of the size of the tree
         // (after that the data are loaded)
-        width = 800 - margin.right - margin.left,
-        height = 400 - margin.top - margin.bottom;
+        width = 1000 - margin.right - margin.left,
+        height = 750 - margin.top - margin.bottom;
     
-    var rectNode = { width : 120, height : 45, textMargin : 5 },
+    var rectNode = { width : 200, height : 100, textMargin : 5 },
         tooltip = { width : 150, height : 40, textMargin : 5 };
     var i = 0,
         duration = 750,
@@ -190,9 +190,10 @@ function treeBoxes(urlService, jsonData)
                     return '<div style="width: '
                             + (rectNode.width - rectNode.textMargin * 2) + 'px; height: '
                             + (rectNode.height - rectNode.textMargin * 2) + 'px;" class="node-text wordwrap">'
-                            + '<b>' + d.nodeName + '</b><br><br>'
-                            + '<b>Code: </b>' + d.code + '<br>'
-                            + '<b>Version: </b>' + d.version + '<br>'
+                            + '<b><front style="font-size:14px;">' + d.nodeName + '</front></b><br><br>'
+                            + '<b>INC No.: </b>' + d.code + '<br>'
+                            + '<b>Description: </b>' + d.desc + '<br>'
+                            + '<b>ETA: </b>' + d.eta + '<br>'
                             + '</div>';
                 })
         .on('mouseover', function(d) {
