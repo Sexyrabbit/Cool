@@ -4,6 +4,7 @@ from django.conf import settings
 import os,sys,json
 from datetime import datetime
 from .models import *
+from django.db import connection
 
 # Create your views here.
 
@@ -29,10 +30,6 @@ def get_application_details(request,appname):
        incs = s.get_incident_by_list_ci(ci_params)
 
        # Test incident
-       if appname == "Axial EOD":
-        incs = [{"label": "message", "value": "INC99001112321: msg123"}, {"label": "message", "value": "INC99001112322: msg456"}]
-
-       print(incs)
        result["title"] = appname
        result["updatedAt"] = datetime.today().strftime('%Y-%m-%d-%H:%M:%S')
        result["data"] = []
@@ -51,3 +48,22 @@ def get_application_details(request,appname):
        data.append(result)
        print(data)
        return HttpResponse(json.loads(json.dumps(data)), content_type="application/json")
+
+def get_relation(request, incidentID):
+    return render(request, "relation.html")
+
+def get_fake_data(request):
+    data = open(settings.DATA_PATH, "r")
+    return HttpResponse(json.loads(json.dumps(data.readlines())), content_type="application/json")
+    
+def get_child(incidentID):
+    c = connection.cursor()
+    c.execute('select * from servicenow_incident where inc_dup_id in (select children from servicenow_incident where parent = "%s")' % incidentID)
+    result = c.fetchall()
+    return result
+
+def get_parent(incidentID):
+    c = connection.cursor()
+    c.execute('select * from servicenow_incident where inc_dup_id in (select parent from servicenow_incident where children = "%s")' % incidentID)
+    result = c.fetchall()
+    return result
