@@ -115,6 +115,10 @@ $(function () {
                     incs = configitem["incs"];
                     for(var i=0; i<incs.length; i++) {
                         var inc = incs[i];
+                        $('#'+inc["inc_id"] + ":not(.bound)").addClass('bound').bind("click", function() {
+                            window.open("../relation/INC01");
+                        });
+
                         $('#'+inc["inc_id"]).hover(function(){
                             $(this).css({"background-color": "#ff0000"});
                             $('#'+appname).css({
